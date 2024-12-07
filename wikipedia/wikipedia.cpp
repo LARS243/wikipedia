@@ -4,6 +4,11 @@
 #include <iostream>
 using namespace std;
 
+void ne_main() {
+    while (true) {
+        cout << "Хорошего человека Олегом не назовут";
+    }
+}
 int main()
 {
     std::cout << "Hello World!\n";
