@@ -8,7 +8,8 @@ int main()
 {
     std::cout << "Hello World!\n";
     cout << "ОЛЕЕЕЕГ";
-    cout << "Raz na raz na toporax na kopiyax";
+    int a;
+    cin >> a;
     cout << "Шойгу, Герасимов, где боеприпеасы";
 }
 
