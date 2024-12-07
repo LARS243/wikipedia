@@ -8,7 +8,7 @@ int main()
 {
     std::cout << "Hello World!\n";
     cout << "ОЛЕЕЕЕГ";
-    cout << "Raz na raz na toporax na kopiyax";
+    cout << "Raz na raz na toporax na kopiyax 1 na 1 2 na 2";
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
