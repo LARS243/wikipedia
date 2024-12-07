@@ -1,7 +1,9 @@
 ﻿#include <iostream>
 #include <vector>
+#include <cctype>
+#include <iomanip>
+#include <sstream>
 #include <string>
-
 using namespace std;
 
 class cout_wiki {
@@ -13,6 +15,7 @@ private:
         }
         return ln;
     }
+
 public:
     
     void open_brouser() {
@@ -37,8 +40,38 @@ private:
     vector<string> results;
     string base_url = "https://ru.wikipedia.org/w/api.php";
 };
+
+string url_encode(const string& value) {
+    ostringstream escaped;
+    escaped.fill('0');
+    escaped << hex;
+
+    for (string::const_iterator i = value.begin(), n = value.end(); i != n; ++i) {
+        string::value_type c = (*i);
+
+        // Keep alphanumeric and other accepted characters intact
+        if (isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
+            escaped << c;
+            continue;
+        }
+
+        // Any other characters are percent-encoded
+        escaped << uppercase;
+        escaped << '%' << setw(2) << int((unsigned char)c);
+        escaped << nouppercase;
+    }
+
+    return escaped.str();
+}
+
 int main(){
     setlocale(LC_ALL, "RU");
     cout_wiki new_page;
+    string search_input;
+    cout << "Введите ваш поисковой запрос: ";
+    cin >> search_input;
+    cout << search_input << endl;
+    search_input = url_encode(search_input);
+    cout << search_input;
     new_page.open_brouser();
 }
