@@ -3,6 +3,9 @@
 #include <string>
 using namespace std;
 
+class cout_wiki {
+
+};
 class search_wiki {
 private:
     vector<string> results;
