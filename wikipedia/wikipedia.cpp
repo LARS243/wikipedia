@@ -8,6 +8,9 @@ int main()
 {
     std::cout << "Hello World!\n";
     cout << "ОЛЕЕЕЕГ";
+    cout << "git_";
+    int f;
+    int q;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
