@@ -6,21 +6,27 @@ using namespace std;
 
 class cout_wiki {
 private:
-    string base_url = "https://ru.wikipedia.org/w/api.php";
-    
-public:
-    //char pageid[] = element;
-
-    void open_brouser() {
-        char pageid[]{ "13099" };
+    int ln_str(char str[]) {
         int ln = 0;
-        while (pageid[ln]) {
+        while (str[ln]) {
             ln++;
         }
-        cout << ln;
+        return ln;
+    }
+public:
+    
+    void open_brouser() {
         char url[]{ "start iexplore.exe \"https://ru.wikipedia.org/w/index.php?curid=00000000000000000000\"" };
-        cout << url[62];
-        //system(url);
+        int end_zeros = 82;
+        char pageid[]{ "13099" };
+
+        int ln = ln_str(pageid);
+        
+        for (int i = 0; i <= ln; i++) {
+            url[end_zeros - i] = pageid[ln - i];
+        }
+
+        system(url);
     }
 };
 
