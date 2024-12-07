@@ -8,7 +8,6 @@ private:
     vector<string> results;
     string base_url = "https://ru.wikipedia.org/w/api.php";
 };
-int main()
-{
+int main(){
     setlocale(LC_ALL, "RU");
 }
