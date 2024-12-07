@@ -4,20 +4,9 @@
 #include <iostream>
 using namespace std;
 
-void ne_main() {
-    while (true) {
-        cout << "Хорошего человека Олегом не назовут";
-    }
-}
 int main()
 {
-    std::cout << "Hello World!\n";
-    cout << "ОЛЕЕЕЕГ";
-    int a;
-    cin >> a;
-    cout << a;
-    cout << "Шойгу, Герасимов, где боеприпеасы";
-    cout << "Raz na raz na toporax na kopiyax 1 na 1 2 na 2";
+    
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
