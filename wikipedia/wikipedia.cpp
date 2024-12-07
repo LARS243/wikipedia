@@ -7,5 +7,5 @@ class search_wiki {
 };
 int main()
 {
-    
+    setlocale(LC_ALL, "RU");
 }
