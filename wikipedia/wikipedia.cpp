@@ -12,9 +12,10 @@
 using namespace std;
 const int end_zeros = 82;//Сеня, напиши потом, нахрена
 
-const static string search_wiki_ip = "https://ru.wikipedia.org/w/api.php?action=query&list=search&utf8=&format=json&srsearch=";
-const static string search_wiki = "https://ru.wikipedia.org/w/index.php?curid=";
-const static string wiki = "ru.wikipedia.org";
+const string search_wiki_ip = "https://ru.wikipedia.org/w/api.php?action=query&list=search&utf8=&format=json&srsearch=";
+const string search_wiki = "https://ru.wikipedia.org/w/index.php?curid=";
+const string wiki = "ru.wikipedia.org";
+const string wiki_ip = "/w/api.php?action=query&list=search&utf8=&format=json&srsearch=";
 
 //class WIKI
 //{
@@ -124,7 +125,7 @@ public:
 		boost::asio::ip::tcp::resolver resolver(io);
 		boost::asio::ip::tcp::socket socket(io);
 		boost::asio::connect(socket, resolver.resolve(wiki, "80"));
-		string search_complete = search_wiki_ip + search;
+		string search_complete = wiki_ip + search;
 		cout << search_complete;
 		boost::beast::http::request<boost::beast::http::string_body> req(boost::beast::http::verb::get, search_complete, 11);
 		req.set(boost::beast::http::field::host, wiki);
@@ -135,7 +136,8 @@ public:
 			boost::beast::flat_buffer buffer;
 			boost::beast::http::response<boost::beast::http::dynamic_body> res;
 			boost::beast::http::read(socket, buffer, res);
-			responce = boost::beast::buffers_to_string(res.body().data());
+			responce += boost::beast::buffers_to_string(res.body().data());
+			std::cout << res << std::endl;
 		}
 		socket.shutdown(boost::asio::ip::tcp::socket::shutdown_both);
 		return (responce);
@@ -147,6 +149,6 @@ int main()
 	string command;
 	cin >> command;
 	responce_wiki WIKI;
-
-	cout << WIKI.get_responce(command);
+	string responce = WIKI.get_responce(command);
+	cout << responce;
 }
