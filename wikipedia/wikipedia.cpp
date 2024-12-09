@@ -4,6 +4,9 @@
 #include <iomanip>
 #include <sstream>
 #include <string>
+#include <boost/beast.hpp>
+#include <boost/asio/connect.hpp>
+#include <boost/asio/ip/tcp.hpp>
 using namespace std;
 const int end_zeros = 82;//Сеня, напиши потом, нахрена
 
